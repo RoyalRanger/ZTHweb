@@ -63,6 +63,11 @@ hr {
         gap: 2ch;
         padding: 2ch;
     }
+    
+    .box {
+        margin-right: 25ch;
+        margin-left: 25ch;
+    }
 }
 
 /* для телефона */
@@ -81,11 +86,6 @@ hr {
     
     .header_hide {
         display: none;
-    }
-    
-    .box {
-        margin-right: 25ch;
-        margin-left: 25ch;
     }
 }
 
