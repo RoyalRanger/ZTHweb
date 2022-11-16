@@ -51,7 +51,8 @@ hr {
     margin-top: 10px;
 }
 
-@media (min-width: 1024px) {
+/* для пк */
+@media (min-width: 1024px) { 
     .main {
         display: grid;
         grid-template-columns: 1fr;
@@ -59,11 +60,12 @@ hr {
                              "options        "
                              "frime          "
                              "more           ";
-        gap: 2ch;
+        gap: 10ch;
         padding: 2ch;
     }
 }
 
+/* для телефона */
 @media (max-width: 1024px) {
     .main {
         display: grid;
@@ -73,8 +75,16 @@ hr {
                              "frime       "
                              "more        "
                              "additionally";
-        gap: 10ch;
+        gap: wch;
         padding: 2ch;
+    }
+    
+    .header_hide {
+        display: none;
+    }
+    
+    .box {
+        width: 50ch;
     }
 }
 
