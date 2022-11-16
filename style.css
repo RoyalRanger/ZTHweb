@@ -60,7 +60,7 @@ hr {
                              "options        "
                              "frime          "
                              "more           ";
-        gap: 10ch;
+        gap: 2ch;
         padding: 2ch;
     }
 }
@@ -84,7 +84,8 @@ hr {
     }
     
     .box {
-        width: 50ch;
+        margin-right: 25ch;
+        margin-left: 25ch;
     }
 }
 
