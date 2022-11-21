@@ -20,7 +20,7 @@ header {
     position: sticky;
     top: 0px;
     background-image: linear-gradient(to right, #2a2a2a, #414040, #2a2a2a);
-    box-shadow: 0 0 5px 0 #34495e;
+    box-shadow: 0 0 5px 0 #000;
 }
 
 header p {
