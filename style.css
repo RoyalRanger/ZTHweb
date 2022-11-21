@@ -110,7 +110,8 @@ hr {
 
 .header {
     padding: 1ch;
-    background-color: rgb(229, 117, 110);
+    background: linear-gradient(to top left, #e5756e, #e66761, #e5756e);
+/*     background-color: #e5756e; */
     text-align: center;
     padding: 0;
 }
