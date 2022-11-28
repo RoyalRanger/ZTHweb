@@ -83,8 +83,8 @@ function calculateBuyFromSigna(Signa) {
     if (bSigna <= 0) {
         return {
             poolFeeSigna: 0,
-            contractActivation: 0,
-            transactionFee: 0,
+            contractActivation: 1,
+            transactionFee: 1,
             impact: 0,
             effectivePrice: 0,
             effectiveAsset: 0
