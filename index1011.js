@@ -44,7 +44,7 @@ const Config = {
     assetId: "9381200141252723234",
     lcId: "9518219425200752102",
     contractActivation: 42000000n,
-    transactionFee: 165000000n,
+    transactionFee: 16500000n,
     appName: "TMG Signa Pool",
     networkName: "Signum",
     slippageMessage: "ATTENTION: Shown only once\n\nCalculations are only valid if your transaction is the only one between the the time the page loads and the transaction be processed by the smart contract. Actual received values may differ.",
