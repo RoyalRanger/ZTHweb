@@ -345,7 +345,7 @@ function evtBuyTmg(e) {
     document.getElementById('ipt_buy_signa').value = Params.neededSigna
     document.getElementById('buy_effective_price').innerText = Params.effectivePrice.toFixed(4)
     document.getElementById('buy_price_impact').innerText = (Params.impact * 100).toFixed(2)
-    document.getElementById('buy_op_cost').innerText = (NQTToNumber(Config.contractActivation + Config.transactionFee) + Params.poolFeeSigna).toFixed(4)
+    document.getElementById('buy_op_cost').innerText = (NQTToNumber(Config.contractActivation + Config.transactionFee + Config.amountFee) + Params.poolFeeSigna).toFixed(4)
     console.log(JSON.stringify(Params))
 }
 
