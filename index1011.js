@@ -465,7 +465,7 @@ async function evtAdd() {
         return
     }
     const userInputSigna = document.getElementById('ipt_add_signa').value
-    let numberSigna = Number(userInputSigna) + NQTToNumber(Config.transactionFee)
+    let numberSigna = Number(userInputSigna) - NQTToNumber(Config.transactionFee)
     if (isNaN(numberSigna)) {
         numberSigna = Number(userInputSigna.replace(',','.'))
     }
