@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>ZTH Mining Informer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content=""> <!-- Тут должно быть описание сайта -->
+    <meta name="description" content="Mining informer for tracking the status of the ZTH token mining on the Signum blockchain"> <!-- Тут должно быть описание сайта -->
     <meta name="keywords" content="mining zth signum blockchain smart contract">
     <meta name="author" content="Rui Santana">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
@@ -12,7 +12,7 @@
     <link rel="icon" type="image/png" sizes="256x256" href="img/favicon-256.png">
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta property="og:title" content="ZTH miner">
-    <meta property="og:image" content="TMGlogo.png"> <!-- Нужна картинка для соц сетей размером 1200х630 пикселей -->
+    <meta property="og:image" content="/img/TMGlogo.png"> <!-- Нужна картинка для соц сетей размером 1200х630 пикселей -->
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:description" content="Smart contract mining zth">
@@ -30,48 +30,48 @@
     <header>
         <img src="img/TMGlogo.png" width="40px">
         <p class="header_hide"> ZTH Mining Informer&nbsp;&nbsp;</p>
-        <a href=/>Домой</a>
-        <a href="#my_account">Мой&nbsp;аккаунт</a>
-        <a href="#options">Опции</a>
+        <a href=/>Home</a>
+        <a href="#my_account">My&nbsp;account</a>
+        <a href="#options">Options</a>
     </header>
 
     <hr>
 
     <main>
         <section class="header">
-            <h2>Состояние майнинга</h2>
+            <h2>Mining status</h2>
             <div class="block_container">
                <div class="block_container">
-        <div class="block">Майнер<br>#<output id="player_name">?</output></div>
-        <div class="block">Добыто ZTH<br><output id="player_tmg_quantity">?</output></div>
-        <div class="block" id="my_account">Виртуальная HDD ферма<br><output id="my_balance">?</output> VGB</div> 
+        <div class="block">Miner<br>#<output id="player_name">?</output></div>
+        <div class="block">Mined ZTH<br><output id="player_tmg_quantity">?</output></div>
+        <div class="block" id="my_account">Virtual HDD Farm<br><output id="my_balance">?</output> VGB</div> 
             </div>
         </section>
             
       <section class="main">
             <nav class="account box" name="linked">
-                <h2>Аккаунт</h2>
-        <div name="unlinked">Учетная запись:<br>
+                <h2>Accountт</h2>
+        <div name="unlinked">Account:<br>
         <input type="text" placeholder="S-AAAA-BBBB-CCCC-DDDDD" class="wide" id="rsToLink"><br>
-        <button id="btn_link_account"  class="wide">Просмотр</button><br>
+        <button id="btn_link_account"  class="wide">Explore</button><br>
         </div>
         <div name="linked">
-            Ваш аккаунт: <span class="output" name="playerRS"></span> - <output id="player_name"></output><br>
-            Баланс: <output id="player_tmg_quantity_2"></output> ZTH<br id="options">
-            <button id="btn_unlink_account" class="wide">Разъеденить</button>
+            Your account: <span class="output" name="playerRS"></span> - <output id="player_name"></output><br>
+            Balance: <output id="player_tmg_quantity_2"></output> ZTH<br id="options">
+            <button id="btn_unlink_account" class="wide">Disconnect</button>
             
             </nav>
         <nav class="options box">
             <div>    
-            <h2>Опции</h2>
-            <p>Используйте Phoenix Wallet</p>
+            <h2>Options</h2>
+            <p>Use Phoenix Wallet</p>
         <a href="signum://requestBurst?receiver=S-X3F9-KL43-GPMV-2YTHN&amountNQT=25033000000&feeNQT=2000000&immutable=false&message=VGB&messageIsText=false""><img src="img/QR_250_33.png" height="136px"></a><br>    
         <a id="pay_VGB_r" class="wide" href="signum://requestBurst?receiver=S-X3F9-KL43-GPMV-2YTHN&amountNQT=25033000000&feeNQT=2000000&immutable=false&message=VGB&messageIsText=false">Купить VGB с PHOENIX Wallet</a><br>
-        Текущий узел <output id="current_node">?</output><br>
-        Выберите узел :<br>
+        Current node <output id="current_node">?</output><br>
+        Select a node:<br>
         <input type="text" class="wide" id="ipt_new_node" placeholder="https://prefered.node"><br>
         <button id="btn_new_node" class="wide">Добавить</button><br>
-        Вспомогательные узлы: <br>
+        Auxiliary nodes: <br>
         <output id="nodes_list"><p>https://brazil.signum.network<br>
         </div>
                                         
@@ -85,10 +85,10 @@
                                                                                                                                    
             <nav class="more box">
                   <div>
-                    <h2>Узнать больше</h2>
-                    Узнайте больше о ZTH на <a href="https://github.com/RoyalRanger/ZTH-Grand-Pool">ZTH Grand Pool</a><br>
-                    Установите кроссплатформенный Signum кошелек <a href="https://phoenix-wallet.rocks/">Phoenix</a><br>
-                    Установите мобильный Phoenix для оплаты прямо с мобильного устройства<br>
+                    <h2>To learn more</h2>
+                    Learn more about ZTH at <a href="https://github.com/RoyalRanger/ZTH-Grand-Pool">ZTH Grand Pool</a><br>
+                    Install a cross-platform Signum wallet <a href="https://phoenix-wallet.rocks/">Phoenix</a><br>
+                    Install Mobile Phoenix to pay directly from your mobile device<br>
                     <a href="https://apps.apple.com/us/app/phoenix-burst-ios-wallet/id1485827209"><img src="img/App.png" height="32px"></a>&nbsp;&nbsp;
                     <a href="https://play.google.com/store/apps/details?id=com.signum.phoenix"><img src="img/GPlay.png" height="32px"></a>
                 </div>             
