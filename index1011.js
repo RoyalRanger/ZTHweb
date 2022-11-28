@@ -287,7 +287,7 @@ function evtCalculateAddTmg(e) {
     }
 
     const bTmg = BigInt((numberTmg * 100).toFixed(0))
-    const signaAmount = ((bTmg * Stats.signaTotal) / Stats.assetTotal) + Config.contractActivation + Config.transactionFee
+    const signaAmount = ((bTmg * Stats.signaTotal) / Stats.assetTotal) + Config.contractActivation + Config.transactionFee + 0.33
 
     const Params = calculateAdd(NQTToNumber(signaAmount), numberTmg)
     document.getElementById('add_refunded_signa').innerText = Params.refundedSigna.toFixed(8)
@@ -885,12 +885,12 @@ async function updateStatusTable() {
                 amount = (Number(tx.attachment.quantityQNT)/100).toString() + " TMG"
             } else {
                 action = 'Buy TMG'
-                amount = ((Number(tx.amountNQT)/1E8)+1.42).toFixed(2) + " SIGNA"
+                amount = ((Number(tx.amountNQT)/1E8)+0.42).toFixed(2) + " SIGNA"
             }
             break;
         case 'add':
             action = 'Add liquidity'
-            amount = (Number(tx.attachment.quantityQNT)/100).toString() + " TMG + " + ((Number(tx.amountNQT)/1E8)+1.42).toFixed(0) + " SIGNA"
+            amount = (Number(tx.attachment.quantityQNT)/100).toString() + " TMG + " + ((Number(tx.amountNQT)/1E8)+0.42).toFixed(0) + " SIGNA"
             break;
         case 'remove':
             action = 'Remove liquidity'
