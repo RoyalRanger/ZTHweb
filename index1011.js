@@ -141,7 +141,7 @@ function calculateBuyFromTmg(Tmg) {
 function calculateAdd(Signa, Asset) {
 
     let bAsset = BigInt((Asset * 100).toFixed(0))
-    let bSigna = BigInt((Signa * 1E8).toFixed(0)) - Config.contractActivation + Config.transactionFee
+    let bSigna = BigInt((Signa * 1E8).toFixed(0)) - Config.contractActivation + Config.transactionFee + Config.amountFee
     if (bAsset <= 0n || bSigna <= 0n) {
         return {
             addedLiquidity: 0,
