@@ -465,7 +465,7 @@ async function evtAdd() {
         return
     }
     const userInputSigna = document.getElementById('ipt_add_signa').value
-    let numberSigna = Number(userInputSigna) - NQTToNumber(Config.transactionFee)
+    let numberSigna = Number(userInputSigna) + NQTToNumber(Config.transactionFee)
     if (isNaN(numberSigna)) {
         numberSigna = Number(userInputSigna.replace(',','.'))
     }
@@ -689,7 +689,7 @@ async function getExtendedAccountInfo() {
         Global.extendedInfo.name = Response.name
     }
     Global.extendedInfo.signa = Number(Response.unconfirmedBalanceNQT) / 1E8
-    Global.extendedInfo.signaLocked = (Number(Response.balanceNQT) / 1E8) - Global.extendedInfo.signa
+    Global.extendedInfo.signaLocked = (Number(Response.balanceNQT) / 1E8) + Global.extendedInfo.signa
     if (Response.assetBalances === undefined) {
         Global.extendedInfo.tmg = 0
         Global.extendedInfo.tmgLocked = 0
