@@ -273,7 +273,7 @@ function evtCalculateAddSigna(e) {
     document.getElementById('add_refunded_signa').innerText = Params.refundedSigna.toFixed(4)
     document.getElementById('add_refunded_tmg').innerText = Params.refundedAsset
     document.getElementById('add_lctmg').innerText = Params.addedLiquidity
-    document.getElementById('add_op_cost').innerText = NQTToNumber(Config.contractActivation + Config.transactionFee)
+    document.getElementById('add_op_cost').innerText = NQTToNumber(Config.contractActivation + Config.transactionFee + Config.amountFee)
     console.log(JSON.stringify(Params))
 }
 
