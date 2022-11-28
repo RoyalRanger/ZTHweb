@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ZTH Mining Informer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=""> <!-- Тут должно быть описание сайта -->
+    <meta name="keywords" content="mining zth signum blockchain smart contract">
+    <meta name="author" content="Rui Santana">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="img/favicon-256.png">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta property="og:title" content="ZTH miner">
+    <meta property="og:image" content="TMGlogo.png"> <!-- Нужна картинка для соц сетей размером 1200х630 пикселей -->
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:description" content="Smart contract mining zth">
+    <meta property="og:url" content="https://zth-web.vercel.app/">
+    <meta property="og:type" content="website">
+    <script src="https://cdn.jsdelivr.net/npm/@signumjs/core/dist/signumjs.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/@signumjs/wallets/dist/signumjs.wallets.min.js'></script>
+    <script src="index.js?refresh=0305"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@signumjs/util/dist/signumjs.util.min.js"></script> -->
+    <script src='https://cdn.jsdelivr.net/npm/@signumjs/wallets/dist/signumjs.wallets.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/@signumjs/wallets@1.0.0-rc.26/dist/signumjs.wallets.min.js'></script> 
+</head>
+
+<body id="home">
+    <header>
+        <img src="img/TMGlogo.png" width="40px">
+        <p class="header_hide"> ZTH Mining Informer&nbsp;&nbsp;</p>
+        <a href=/>Домой</a>
+        <a href="#my_account">Мой&nbsp;аккаунт</a>
+        <a href="#options">Опции</a>
+    </header>
+
+    <hr>
+
+    <main>
+        <section class="header">
+            <h2>Состояние майнинга</h2>
+            <div class="block_container">
+               <div class="block_container">
+        <div class="block">Майнер<br>#<output id="player_name">?</output></div>
+        <div class="block">Добыто ZTH<br><output id="player_tmg_quantity">?</output></div>
+        <div class="block" id="my_account">Виртуальная HDD ферма<br><output id="my_balance">?</output> VGB</div> 
+            </div>
+        </section>
+            
+      <section class="main">
+            <nav class="account box" name="linked">
+                <h2>Аккаунт</h2>
+        <div name="unlinked">Учетная запись:<br>
+        <input type="text" placeholder="S-AAAA-BBBB-CCCC-DDDDD" class="wide" id="rsToLink"><br>
+        <button id="btn_link_account"  class="wide">Просмотр</button><br>
+        </div>
+        <div name="linked">
+            Ваш аккаунт: <span class="output" name="playerRS"></span> - <output id="player_name"></output><br>
+            Баланс: <output id="player_tmg_quantity_2"></output> ZTH<br id="options">
+            <button id="btn_unlink_account" class="wide">Разъеденить</button>
+            
+            </nav>
+        <nav class="options box">
+            <div>    
+            <h2>Опции</h2>
+            <p>Используйте Phoenix Wallet</p>
+        <a href="signum://requestBurst?receiver=S-X3F9-KL43-GPMV-2YTHN&amountNQT=25033000000&feeNQT=2000000&immutable=false&message=VGB&messageIsText=false""><img src="img/QR_250_33.png" height="136px"></a><br>    
+        <a id="pay_VGB_r" class="wide" href="signum://requestBurst?receiver=S-X3F9-KL43-GPMV-2YTHN&amountNQT=25033000000&feeNQT=2000000&immutable=false&message=VGB&messageIsText=false">Купить VGB с PHOENIX Wallet</a><br>
+        Текущий узел <output id="current_node">?</output><br>
+        Выберите узел :<br>
+        <input type="text" class="wide" id="ipt_new_node" placeholder="https://prefered.node"><br>
+        <button id="btn_new_node" class="wide">Добавить</button><br>
+        Вспомогательные узлы: <br>
+        <output id="nodes_list"><p>https://brazil.signum.network<br>
+        </div>
+                                        
+                </div>
+            </nav>
+        <nav class="frime box" id="frime">
+            <div>                               
+                 <iframe width = "100%" height = "520px" src = "https://zth-web.vercel.app/pay" frameborder="0" style="border: 0px"> </iframe>                                
+            </div>    
+            </nav>                                                                                                                     
+                                                                                                                                   
+            <nav class="more box">
+                  <div>
+                    <h2>Узнать больше</h2>
+                    Узнайте больше о ZTH на <a href="https://github.com/RoyalRanger/ZTH-Grand-Pool">ZTH Grand Pool</a><br>
+                    Установите кроссплатформенный Signum кошелек <a href="https://phoenix-wallet.rocks/">Phoenix</a><br>
+                    Установите мобильный Phoenix для оплаты прямо с мобильного устройства<br>
+                    <a href="https://apps.apple.com/us/app/phoenix-burst-ios-wallet/id1485827209"><img src="img/App.png" height="32px"></a>&nbsp;&nbsp;
+                    <a href="https://play.google.com/store/apps/details?id=com.signum.phoenix"><img src="img/GPlay.png" height="32px"></a>
+                </div>             
+            </nav>
+            
+          
+        </section>
+    </main>
+    
+    <footer>
+        <div class="end">
+        <br>
+        <a href="https://www.signum.network/"><img src="img/powered.svg" height="32px"></a>&nbsp;&nbsp;
+        <a href="https://www.npmjs.com/package/smartc-signum-compiler"><img src="img/smartc-logo.svg" height="32px"></a>&nbsp;&nbsp;
+        <a href="https://github.com/signum-network/signumjs#readme"><img src="img/Signum_Badge_JS.svg" height="32px"></a>&nbsp;&nbsp;
+        <a href="https://github.com/RoyalRanger"><svg focusable="false" fill="white" aria-hidden="true" height="32px" viewBox="0 0 24 24" data-testid="GitHubIcon"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a>&nbsp;&nbsp;
+        <a href="https://phoenix-wallet.rocks/"><img src="img/Phoenix.png" height="32px"></a>
+    </footer>
+
+<script src="script.js" type="text/javascript" href="script.js"></script>
+<script src="index.js" type="text/javascript" href="script.js"></script>
+<script src="/index1011.js" type="text/javascript" href="script.js"></script>                                                              
+</body>
+</html>
