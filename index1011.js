@@ -267,7 +267,7 @@ function evtCalculateAddSigna(e) {
         return
     }
 
-    const assetQuantity = Number(((numberSigna - NQTToNumber(Config.contractActivation + Config.transactionFee)) / Stats.aPrice).toFixed(2))
+    const assetQuantity = Number(((numberSigna + NQTToNumber(Config.contractActivation + Config.transactionFee + Config.amountFee)) / Stats.aPrice).toFixed(2))
     document.getElementById('ipt_add_tmg').value = assetQuantity
     const Params = calculateAdd(numberSigna, assetQuantity)
     document.getElementById('add_refunded_signa').innerText = Params.refundedSigna.toFixed(4)
