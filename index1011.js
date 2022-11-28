@@ -885,12 +885,12 @@ async function updateStatusTable() {
                 amount = (Number(tx.attachment.quantityQNT)/100).toString() + " TMG"
             } else {
                 action = 'Buy TMG'
-                amount = ((Number(tx.amountNQT)/1E8)+0.42).toFixed(2) + " SIGNA"
+                amount = ((Number(tx.amountNQT)/1E8)+1.42).toFixed(2) + " SIGNA"
             }
             break;
         case 'add':
             action = 'Add liquidity'
-            amount = (Number(tx.attachment.quantityQNT)/100).toString() + " TMG + " + ((Number(tx.amountNQT)/1E8)+0.42).toFixed(0) + " SIGNA"
+            amount = (Number(tx.attachment.quantityQNT)/100).toString() + " TMG + " + ((Number(tx.amountNQT)/1E8)+1.42).toFixed(0) + " SIGNA"
             break;
         case 'remove':
             action = 'Remove liquidity'
