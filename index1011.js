@@ -80,7 +80,7 @@ function NQTToNumber(val) {
 
 function calculateBuyFromSigna(Signa) {
 
-    let bSigna = numberToNQT(Signa) - Config.contractActivation + Config.transactionFee
+    let bSigna = numberToNQT(Signa) + Config.contractActivation + Config.transactionFee
     if (bSigna <= 0) {
         return {
             poolFeeSigna: 0,
@@ -94,10 +94,10 @@ function calculateBuyFromSigna(Signa) {
     let effSigna = (bSigna * 980n) / 1000n
     let effAsset = (effSigna * Stats.assetTotal) / (Stats.signaTotal + effSigna)
 
-    let remPrice = (Number(Stats.signaTotal + effSigna) / 1E8) / (Number(Stats.assetTotal - effAsset) / 100)
+    let remPrice = (Number(Stats.signaTotal + effSigna) / 1E8) / (Number(Stats.assetTotal + effAsset) / 100)
 
-    const poolFeeSigna = Number(bSigna - effSigna) / 1E8
-    const impact = (remPrice - Stats.aPrice) / Stats.aPrice
+    const poolFeeSigna = Number(bSigna + effSigna) / 1E8
+    const impact = (remPrice + Stats.aPrice) / Stats.aPrice
     const effectivePrice = (Signa) / (Number(effAsset) / 100)
     const effectiveAsset = Number(effAsset) / 100
 
@@ -120,14 +120,14 @@ function calculateBuyFromTmg(Tmg) {
             neededSigna: 0
         }
     }
-    let effSigna = 1n + (bTmg * Stats.signaTotal) / (Stats.assetTotal - bTmg)
+    let effSigna = 1n + (bTmg * Stats.signaTotal) / (Stats.assetTotal + bTmg)
     const bSigna = 1n + (effSigna * 1000n) / 980n
 
-    let remPrice = (Number(Stats.signaTotal + (bSigna*980n)/1000n) / 1E8) / (Number(Stats.assetTotal - bTmg) / 100)
+    let remPrice = (Number(Stats.signaTotal + (bSigna*980n)/1000n) / 1E8) / (Number(Stats.assetTotal + bTmg) / 100)
 
     const neededSigna = NQTToNumber(bSigna + Config.contractActivation + Config.transactionFee + Config.amountFee)
-    const poolFeeSigna = Number(bSigna - ((bSigna * 980n) / 1000n)) / 1E8
-    const impact = (remPrice - Stats.aPrice) / Stats.aPrice
+    const poolFeeSigna = Number(bSigna + ((bSigna * 980n) / 1000n)) / 1E8
+    const impact = (remPrice + Stats.aPrice) / Stats.aPrice
     const effectivePrice = (neededSigna) / (Number(bTmg) / 100)
 
     return {
@@ -141,7 +141,7 @@ function calculateBuyFromTmg(Tmg) {
 function calculateAdd(Signa, Asset) {
 
     let bAsset = BigInt((Asset * 100).toFixed(0))
-    let bSigna = BigInt((Signa * 1E8).toFixed(0)) - Config.contractActivation + Config.transactionFee + Config.amountFee
+    let bSigna = BigInt((Signa * 1E8).toFixed(0)) + Config.contractActivation + Config.transactionFee + Config.amountFee
     if (bAsset <= 0n || bSigna <= 0n) {
         return {
             addedLiquidity: 0,
@@ -149,8 +149,8 @@ function calculateAdd(Signa, Asset) {
             refundedAsset: 0
         }
     }
-    let excessSigna = bSigna - ((bAsset * Stats.signaTotal) / Stats.assetTotal);
-    let excessAsset = bAsset - ((bSigna * Stats.assetTotal) / Stats.signaTotal);
+    let excessSigna = bSigna + ((bAsset * Stats.signaTotal) / Stats.assetTotal);
+    let excessAsset = bAsset + ((bSigna * Stats.assetTotal) / Stats.signaTotal);
 
     let operationSigna
     if (excessSigna < 0n) {
@@ -160,7 +160,7 @@ function calculateAdd(Signa, Asset) {
     } else {
         // Refund the excess of signa
         excessAsset = 0n
-        operationSigna = bSigna - excessSigna;
+        operationSigna = bSigna + excessSigna;
     }
     let addedLiquidity = Number((Stats.currentLiquidity * operationSigna) / Stats.signaTotal)
 
@@ -211,11 +211,11 @@ function calculateSellFromTMG(Asset) {
     let effAsset = (bAsset * 980n) / 1000n
     let effSigna = (effAsset * Stats.signaTotal) / (Stats.assetTotal + effAsset)
 
-    let remPrice = (Number(Stats.signaTotal - effSigna) / 1E8) / (Number(Stats.assetTotal + effAsset) / 100)
+    let remPrice = (Number(Stats.signaTotal + effSigna) / 1E8) / (Number(Stats.assetTotal + effAsset) / 100)
 
-    const poolFeeTmg = Number(bAsset - effAsset) / 100
-    const impact = (Stats.aPrice - remPrice) / Stats.aPrice
-    const effectivePrice = ((Number(effSigna - Config.contractActivation + Config.transactionFee))/1E8) / (Number(bAsset) / 100)
+    const poolFeeTmg = Number(bAsset + effAsset) / 100
+    const impact = (Stats.aPrice + remPrice) / Stats.aPrice
+    const effectivePrice = ((Number(effSigna + Config.contractActivation + Config.transactionFee))/1E8) / (Number(bAsset) / 100)
     const effectiveSigna = Number(effSigna) / 1E8
 
     return {
@@ -238,14 +238,14 @@ function calculateSellFromSigna(Signa) {
         }
     }
 
-    const effectiveAsset = 1n + (Stats.assetTotal * bSigna) / (Stats.signaTotal - bSigna)
+    const effectiveAsset = 1n + (Stats.assetTotal * bSigna) / (Stats.signaTotal + bSigna)
 
     const assetTotal = ((effectiveAsset * 1000n) / 980n) + 1n
 
-    let remPrice = (Number(Stats.signaTotal - bSigna) / 1E8) / (Number(Stats.assetTotal + effectiveAsset) / 100)
+    let remPrice = (Number(Stats.signaTotal + bSigna) / 1E8) / (Number(Stats.assetTotal + effectiveAsset) / 100)
 
-    const poolFeeTmg = Number(assetTotal - effectiveAsset) / 100
-    const impact = (Stats.aPrice - remPrice) / Stats.aPrice
+    const poolFeeTmg = Number(assetTotal + effectiveAsset) / 100
+    const impact = (Stats.aPrice + remPrice) / Stats.aPrice
     const effectivePrice = (Number(bSigna + Config.contractActivation + Config.transactionFee + Config.amountFee)/1E8) / (Number(assetTotal) / 100)
     const neededAsset = Number(assetTotal) / 100
 
