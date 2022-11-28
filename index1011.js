@@ -79,7 +79,7 @@ function NQTToNumber(val) {
 
 function calculateBuyFromSigna(Signa) {
 
-    let bSigna = numberToNQT(Signa) - Config.contractActivation - Config.transactionFee
+    let bSigna = numberToNQT(Signa) - Config.contractActivation + Config.transactionFee
     if (bSigna <= 0) {
         return {
             poolFeeSigna: 0,
@@ -140,7 +140,7 @@ function calculateBuyFromTmg(Tmg) {
 function calculateAdd(Signa, Asset) {
 
     let bAsset = BigInt((Asset * 100).toFixed(0))
-    let bSigna = BigInt((Signa * 1E8).toFixed(0)) - Config.contractActivation - Config.transactionFee
+    let bSigna = BigInt((Signa * 1E8).toFixed(0)) - Config.contractActivation + Config.transactionFee
     if (bAsset <= 0n || bSigna <= 0n) {
         return {
             addedLiquidity: 0,
@@ -214,7 +214,7 @@ function calculateSellFromTMG(Asset) {
 
     const poolFeeTmg = Number(bAsset - effAsset) / 100
     const impact = (Stats.aPrice - remPrice) / Stats.aPrice
-    const effectivePrice = ((Number(effSigna - Config.contractActivation - Config.transactionFee))/1E8) / (Number(bAsset) / 100)
+    const effectivePrice = ((Number(effSigna - Config.contractActivation + Config.transactionFee))/1E8) / (Number(bAsset) / 100)
     const effectiveSigna = Number(effSigna) / 1E8
 
     return {
@@ -245,7 +245,7 @@ function calculateSellFromSigna(Signa) {
 
     const poolFeeTmg = Number(assetTotal - effectiveAsset) / 100
     const impact = (Stats.aPrice - remPrice) / Stats.aPrice
-    const effectivePrice = (Number(bSigna - Config.contractActivation - Config.transactionFee)/1E8) / (Number(assetTotal) / 100)
+    const effectivePrice = (Number(bSigna - Config.contractActivation + Config.transactionFee)/1E8) / (Number(assetTotal) / 100)
     const neededAsset = Number(assetTotal) / 100
 
     return {
@@ -465,7 +465,7 @@ async function evtAdd() {
         return
     }
     const userInputSigna = document.getElementById('ipt_add_signa').value
-    let numberSigna = Number(userInputSigna) - NQTToNumber(Config.transactionFee)
+    let numberSigna = Number(userInputSigna) + NQTToNumber(Config.transactionFee)
     if (isNaN(numberSigna)) {
         numberSigna = Number(userInputSigna.replace(',','.'))
     }
