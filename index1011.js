@@ -380,7 +380,7 @@ function evtSellSigna(e) {
     document.getElementById('ipt_sell_tmg').value = Params.neededAsset
     document.getElementById('sell_effective_price').innerText = Params.effectivePrice.toFixed(4)
     document.getElementById('sell_price_impact').innerText = (Params.impact * 100).toFixed(2)
-    document.getElementById('sell_op_cost_signa').innerText = NQTToNumber(Config.contractActivation + Config.transactionFee)
+    document.getElementById('sell_op_cost_signa').innerText = NQTToNumber(Config.contractActivation + Config.transactionFee + Config.amountFee)
     document.getElementById('sell_op_cost_tmg').innerText = Params.poolFeeTmg
     console.log(JSON.stringify(Params))
 }
@@ -399,7 +399,7 @@ async function evtBuy() {
         showError("Signum XT wallet extension not activated. To use this feature you need to install the extension and link your account at main page.")
         return
     }
-    numberBalance -= NQTToNumber(Config.transactionFee)
+    numberBalance += NQTToNumber(Config.transactionFee)
 
     const parameters = {
         amountNQT: (numberBalance*1E8).toFixed(0),
