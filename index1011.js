@@ -79,7 +79,7 @@ function NQTToNumber(val) {
 
 function calculateBuyFromSigna(Signa) {
 
-    let bSigna = numberToNQT(Signa) + Config.contractActivation + Config.transactionFee + 0,33
+    let bSigna = numberToNQT(Signa) + Config.contractActivation + Config.transactionFee
     if (bSigna <= 0) {
         return {
             poolFeeSigna: 0,
