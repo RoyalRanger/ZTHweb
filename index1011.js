@@ -391,7 +391,7 @@ async function evtBuy() {
     if (isNaN(numberBalance)) {
         numberBalance = Number(userInput.replace(',','.'))
     }
-    if (isNaN(numberBalance) || numberBalance <= NQTToNumber(Config.transactionFee + Config.amountFee) || Stats.aPrice === 0) {
+    if (isNaN(numberBalance) || numberBalance <= NQTToNumber(Config.transactionFee) || Stats.aPrice === 0) {
         return
     }
     if (Global.walletResponse === null || Global.walletResponse === undefined) {
@@ -399,7 +399,7 @@ async function evtBuy() {
         showError("Signum XT wallet extension not activated. To use this feature you need to install the extension and link your account at main page.")
         return
     }
-    numberBalance += NQTToNumber(Config.transactionFee)
+    numberBalance -= NQTToNumber(Config.transactionFee)
 
     const parameters = {
         amountNQT: (numberBalance*1E8).toFixed(0),
