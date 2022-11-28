@@ -246,7 +246,7 @@ function calculateSellFromSigna(Signa) {
 
     const poolFeeTmg = Number(assetTotal - effectiveAsset) / 100
     const impact = (Stats.aPrice - remPrice) / Stats.aPrice
-    const effectivePrice = (Number(bSigna - Config.contractActivation + Config.transactionFee)/1E8) / (Number(assetTotal) / 100)
+    const effectivePrice = (Number(bSigna + Config.contractActivation + Config.transactionFee + Config.amountFee)/1E8) / (Number(assetTotal) / 100)
     const neededAsset = Number(assetTotal) / 100
 
     return {
