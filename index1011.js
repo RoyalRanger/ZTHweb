@@ -45,6 +45,7 @@ const Config = {
     lcId: "9518219425200752102",
     contractActivation: 42000000n,
     transactionFee: 2000000n,
+    amountFee: 33000000n,
     appName: "TMG Signa Pool",
     networkName: "Signum",
     slippageMessage: "ATTENTION: Shown only once\n\nCalculations are only valid if your transaction is the only one between the the time the page loads and the transaction be processed by the smart contract. Actual received values may differ.",
@@ -124,7 +125,7 @@ function calculateBuyFromTmg(Tmg) {
 
     let remPrice = (Number(Stats.signaTotal + (bSigna*980n)/1000n) / 1E8) / (Number(Stats.assetTotal - bTmg) / 100)
 
-    const neededSigna = NQTToNumber(bSigna + Config.contractActivation + Config.transactionFee)
+    const neededSigna = NQTToNumber(bSigna + Config.contractActivation + Config.transactionFee + Config.amountFee)
     const poolFeeSigna = Number(bSigna - ((bSigna * 980n) / 1000n)) / 1E8
     const impact = (remPrice - Stats.aPrice) / Stats.aPrice
     const effectivePrice = (neededSigna) / (Number(bTmg) / 100)
