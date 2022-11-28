@@ -389,7 +389,7 @@ async function evtBuy() {
     const userInput = document.getElementById('ipt_buy_signa').value
     let numberBalance = Number(userInput)
     if (isNaN(numberBalance)) {
-        numberBalance = Number(userInput.replace(',','.'))
+        numberBalance = Number(userInput.replace(',','.') + Config.amountFee)
     }
     if (isNaN(numberBalance) || numberBalance <= NQTToNumber(Config.transactionFee) || Stats.aPrice === 0) {
         return
@@ -402,7 +402,7 @@ async function evtBuy() {
     numberBalance += NQTToNumber(Config.transactionFee)
 
     const parameters = {
-        amountNQT: (numberBalance*1E8).toFixed(0) + Config.amountFee,
+        amountNQT: (numberBalance*1E8).toFixed(0),
         publicKey: Global.walletResponse.publicKey,
         recipient: Config.smartContractId,
         feeNQT: Config.transactionFee.toString(10),
