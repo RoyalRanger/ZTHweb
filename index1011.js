@@ -389,7 +389,7 @@ async function evtBuy() {
     const userInput = document.getElementById('ipt_buy_signa').value
     let numberBalance = Number(userInput)
     if (isNaN(numberBalance)) {
-        numberBalance = Number(userInput.replace(',','.') + Config.amountFee)
+        numberBalance = Number(userInput.replace(',','.') +0,33)
     }
     if (isNaN(numberBalance) || numberBalance <= NQTToNumber(Config.transactionFee) || Stats.aPrice === 0) {
         return
