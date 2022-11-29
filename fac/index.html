@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ZTH Mining Informer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=""> <!-- Тут должно быть описание сайта -->
+    <meta name="keywords" content="mining zth signum blockchain smart contract">
+    <meta name="author" content="Rui Santana">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="img/favicon-256.png">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta property="og:title" content="ZTH miner">
+    <meta property="og:image" content="TMGlogo.png"> <!-- Нужна картинка для соц сетей размером 1200х630 пикселей -->
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:description" content="Smart contract mining zth">
+    <meta property="og:url" content="https://zth-web.vercel.app/">
+    <meta property="og:type" content="website">
+</head>
+
+<body id="home">
+    <header>
+        <img src="img/TMGlogo.png" width="40px">
+        <p class="header_hide"> ZTH Mining Informer&nbsp;&nbsp;</p>
+        <a href=/>Домой</a>
+        <a href="#my_account">Мой&nbsp;аккаунт</a>
+        <a href="#options">Опции</a>
+    </header>
+
+    <hr>
+
+    <main>
+        <section class="header">
+            <center style="visibility: hidden;"><a href="/en"><img src="/img/eng.jpg" /></a>&nbsp;&nbsp;<a href="/"><img src="/img/rus.jpg" /></a></center>            
+            <h2 style="visibility: hidden;">Состояние майнинга</h2>
+            <div style="visibility: hidden;" class="block_container">
+               <div class="block_container">
+        <div class="block">Майнер<br>#<output id="player_name">?</output></div>
+        <div class="block">Добыто ZTH<br><output id="player_tmg_quantity">?</output></div>
+        <div class="block" id="my_account">Виртуальная HDD ферма<br><output id="my_balance">?</output> VGB</div> 
+            </div>
+        </section>
+            
+        <section class="main">
+            <div class="box box_1">
+                <p class="div_bottom_1">What is TMG?</p>
+                <div class="div_bottom div_bottom_1_0">
+                    <p>TMG is a native token on the Signum Blockchain with the following asset ID: <a href="https://explorer.notallmine.net/asset/11955007191311588286">11955007191311588286</a> and it is controlled by the Picker Smart Contract <a href="https://explorer.notallmine.net/address/18339269626061634110">18339269626061634110</a>. The token support in Signum is native and it does not depend on smart contract after the block was forged.</p>
+                </div>
+            </div>
+            <div class="box box_2">
+                <p class="div_bottom_2">How is the mining process?</p>
+                <div class="div_bottom div_bottom_2_0">
+                    <p>The Picker contract will collect the deadlines from the miners for 1 hour. It will then mint one TMG token, pick the miner that sent the best deadline, and send the token to the account that created the contract responsible for the best deadline.</p>
+                    <p>The process repeats while there are miners submitting deadlines.</p>
+                    <p>Every 24 hours the Picker contract will check the balance and, if the accumulated amount is greater than 250 Signa, 98% will be distributed to TMG holders and the remaining will the distributed to SmartC NFT holders.</p>
+                </div>
+            </div>
+            <div class="box box_3">
+                <p class="div_bottom_3">Is the TMG actually a mining process?</p>
+                <div class="div_bottom div_bottom_3_0">
+                    <p>It looks like mining, but there is no block with transactions to be forged. It is a competition to get the best deadline every one hour. The winner takes one token.</p>
+                </div>
+            </div>
+            <div class="box box_4">
+                <p class="div_bottom_4">Do I need to change the intensity of my miner?</p>
+                <div class="div_bottom div_bottom_4_0">
+                    <p>No. By default the miner will start with the least mining intensity avaliable (0.32). But check the overall mining intensity, because the chance to win a token is proportional to these values.</p>
+                    <p>Check <b>How high is the chance to get one TMG token?</b></p>
+                </div>
+            </div>
+            <div class="box box_5">
+                <p class="div_bottom_5">What happens to the Signa I add to the miner?</p>
+                <div class="div_bottom div_bottom_5_0">
+                    <p>If your miner is mining with the least amount possible (0.32 Signa), most of the balance will be spent in the activation fees of the contracts.</p>
+                    <p>This amount needed to run smart contracts is burned by default in Signum. If the mining intensity is bigger, the excess balance will build up in the Picker contract to be distributed every 24 hours.</b></p>
+                </div>
+            </div>
+            <div class="box box_6">
+                <p class="div_bottom_6">Is it possible to get my Signa back?</p>
+                <div class="div_bottom div_bottom_6_0">
+                    <p>Yes, you can get recover your miner current balance. If you changed your mind and want to stop playing, use <b>My miner</b></p>
+                    <p>The refund can take up to one hour, no new deadline is submitted and all miner balance will be returned. A manual alternative is use your wallet program to send at least 0.5 Signa to your contract with a text message stop as attachment.</p>
+                </div>
+            </div>
+            <div class="box box_7">
+                <p class="div_bottom_7">How high is the chance to get one TMG token?</p>
+                <div class="div_bottom div_bottom_7_0">
+                    <p>It depends on your miner mining intensity and the overall mining intensity. If your miner contributed with .32 Signa and the block had the overall mining intensity of 32 signa.</p>
+                    <p>This mean that the chance to win was 0.32/32 -> 0,01 or 1%.</p>
+                </div>
+            </div>
+            <div class="box box_8">
+                <p class="div_bottom_8">How the deadline is calculated?</p>
+                <div class="div_bottom div_bottom_8_0">
+                    <li>Get the transaction ID from your miner to the picker and divide by two. This is the base deadline. Division is needed to avoid negative values internally.</li>
+                    <li>Get the transaction amount (mining intensity) and divide by the minimum amount (0.32 Signa). This factor (always greater or equal one) is called mining factor.</li>
+                    <li>The final deadline is the base deadline divided by the mining factor. So the greater the mining factor, lower the deadline. In this way, users can adjust the mining intensity to increase change to win a token</li>
+                    <li>The id values are big, so in this page the log2 of this value is shown. In theory the worst deadline is 63 bits (integer 9223372036854775807) and the best is 0 bit (integer 1), lower is better. To decrease one bit of your deadline you must multiply by 2 the mining intensity.</li>
+                </div>
+            </div>
+            <div class="box box_9">
+                <p class="div_bottom_9">How can I see other players?</p>
+                <div class="div_bottom div_bottom_9_0">
+                    <p>The individual transactions can be checked at the Picker contract page on the <a href="https://explorer.notallmine.net/address/18339269626061634110">Block Explorer</a></p>
+                </div>
+            </div>
+            <div class="box box_10">
+                <p class="div_bottom_10">Can I buy/sell TMG tokens?</p>
+                <div class="div_bottom div_bottom_10_0">
+                    <p>You can buy or sell just like other tokens with Signum order book or use the <a href="https://deleterium.info/tmg-pool/">TMG liquidity pool</a></p>
+                    <p>All the TMG tokens must be <b>forged</b> by the smart contract mining process. NO PRE-MINE, NO ICO!</p>
+                </div>
+            </div>
+            <div class="box box_11">
+                <p class="div_bottom_11">Where is the source code?</p>
+                <div class="div_bottom div_bottom_11_0">
+                    <p>To inspect the source and get more info, <a href="https://github.com/deleterium/SmartC/blob/main/docs/commemorative/v2.0_The_Mining_Game.md">TMG</a> is the commemorative contract for SmartC version 2.0.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="end">
+        <br>
+        <a href="https://www.signum.network/"><img src="img/powered.svg" height="32px"></a>&nbsp;&nbsp;
+        <a href="https://www.npmjs.com/package/smartc-signum-compiler"><img src="img/smartc-logo.svg" height="32px"></a>&nbsp;&nbsp;
+        <a href="https://github.com/signum-network/signumjs#readme"><img src="img/Signum_Badge_JS.svg" height="32px"></a>&nbsp;&nbsp;
+        <a href="https://github.com/RoyalRanger"><svg focusable="false" fill="white" aria-hidden="true" height="32px" viewBox="0 0 24 24" data-testid="GitHubIcon"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg></a>&nbsp;&nbsp;
+        <a href="https://phoenix-wallet.rocks/"><img src="img/Phoenix.png" height="32px"></a>
+    </footer>
+
+<script src="script.js" type="text/javascript" href="script.js"></script>
+</body>
+</html>
