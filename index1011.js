@@ -690,7 +690,7 @@ async function getExtendedAccountInfo() {
         Global.extendedInfo.name = Response.name
     }
     Global.extendedInfo.signa = Number(Response.unconfirmedBalanceNQT) / 1E8
-    Global.extendedInfo.signaLocked = (Number(Response.balanceNQT) / 1E8) + Global.extendedInfo.signa
+    Global.extendedInfo.signaLocked = (Number(Response.balanceNQT) / 1E8) - Global.extendedInfo.signa
     if (Response.assetBalances === undefined) {
         Global.extendedInfo.tmg = 0
         Global.extendedInfo.tmgLocked = 0
