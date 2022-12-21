@@ -421,8 +421,6 @@ async function evtBuy() {
 
 }
 
-    document.getElementById("pay_signa").innerText = NQTToNumber(signaAmount).toFixed(8)
-
 async function evtSell() {
     const userInput = document.getElementById('ipt_sell_tmg').value
     let numberBalance = Number(userInput)
