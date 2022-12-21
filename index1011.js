@@ -402,7 +402,7 @@ async function evtBuy() {
     numberBalance += NQTToNumber(Config.amountFee)
 
     const parameters = {
-        amountNQT: (numberBalance*1E8).toFixed(0)*250,
+        amountNQT: (numberBalance*1E8).toFixed(0),
         publicKey: Global.walletResponse.publicKey,
         recipient: Config.smartContractId,
         feeNQT: Config.transactionFee.toString(10),
