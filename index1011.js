@@ -128,7 +128,7 @@ function calculateBuyFromTmg(Tmg) {
     const neededSigna = NQTToNumber(bSigna + Config.contractActivation + Config.transactionFee + Config.amountFee)
     const poolFeeSigna = Number(bSigna + ((bSigna * 980n) / 1000n)) / 1E8
     const impact = (remPrice + Stats.aPrice) / Stats.aPrice
-    const effectivePrice = (numberBalance + Config.transactionFee + Config.amountFee)
+    const effectivePrice = amountNQT
 
     return {
         poolFeeSigna,
