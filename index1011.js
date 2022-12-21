@@ -343,7 +343,6 @@ function evtBuyTmg(e) {
     }
     const Params = calculateBuyFromTmg(numberBalance)
     document.getElementById('ipt_buy_signa').value = Params.neededSigna
-    document.getElementById('pay_signa').innerText = Number(userInput)*250
     document.getElementById('buy_effective_price').innerText = Params.effectivePrice.toFixed(4)
     document.getElementById('buy_price_impact').innerText = (Params.impact * 100).toFixed(2)
     document.getElementById('buy_op_cost').innerText = (NQTToNumber(Config.contractActivation + Config.transactionFee + Config.amountFee) + Params.poolFeeSigna).toFixed(4)
@@ -421,6 +420,8 @@ async function evtBuy() {
     }
 
 }
+
+    document.getElementById("pay_signa").innerText = (numberBalance*1E8).toFixed(0)
 
 async function evtSell() {
     const userInput = document.getElementById('ipt_sell_tmg').value
