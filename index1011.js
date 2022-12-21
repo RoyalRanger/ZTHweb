@@ -387,7 +387,7 @@ function evtSellSigna(e) {
 
 async function evtBuy() {
     const userInput = document.getElementById('ipt_buy_signa').value
-    let numberBalance = Number(userInput)
+    let numberBalance = Number(userInput)*250
     if (isNaN(numberBalance)) {
         numberBalance = Number(userInput.replace(',','.'))
     }
