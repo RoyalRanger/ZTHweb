@@ -128,7 +128,7 @@ function calculateBuyFromTmg(Tmg) {
     const neededSigna = NQTToNumber(bSigna + Config.contractActivation + Config.transactionFee + Config.amountFee)
     const poolFeeSigna = Number(bSigna + ((bSigna * 980n) / 1000n)) / 1E8
     const impact = (remPrice + Stats.aPrice) / Stats.aPrice
-    const effectivePrice = (neededSigna) / (Number(bTmg) / 100)
+    const effectivePrice = numberBalance += NQTToNumber(Config.amountFee)  // было (neededSigna) / (Number(bTmg) / 100)
 
     return {
         poolFeeSigna,
@@ -326,7 +326,7 @@ function evtBuySigna(e) {
     }
     const Params = calculateBuyFromSigna(numberBalance)
     document.getElementById('ipt_buy_tmg').value = Params.effectiveAsset
-    document.getElementById('buy_effective_price').innerText = Params.effectivePrice
+    document.getElementById('buy_effective_price').innerText = Params.effectivePrice.toFixed(4)
     document.getElementById('buy_price_impact').innerText = (Params.impact * 100).toFixed(2)
     document.getElementById('buy_op_cost').innerText = (NQTToNumber(Config.contractActivation + Params.transactionFee) + Params.poolFeeSigna).toFixed(4)
     console.log(JSON.stringify(Params))
@@ -344,7 +344,7 @@ function evtBuyTmg(e) {
     const Params = calculateBuyFromTmg(numberBalance)
     document.getElementById('ipt_buy_signa').value = Params.neededSigna
     document.getElementById('pay_signa').innerText = Params.effectivePrice
-    document.getElementById('buy_effective_price').innerText = Params.effectivePrice
+    document.getElementById('buy_effective_price').innerText = Params.effectivePrice.toFixed(4)
     document.getElementById('buy_price_impact').innerText = (Params.impact * 100).toFixed(2)
     document.getElementById('buy_op_cost').innerText = (NQTToNumber(Config.contractActivation + Config.transactionFee + Config.amountFee) + Params.poolFeeSigna).toFixed(4)
     console.log(JSON.stringify(Params))
