@@ -399,7 +399,7 @@ async function evtBuy() {
         showError("Signum XT wallet extension not activated. To use this feature you need to install the extension and link your account at main page.")
         return
     }
-    numberBalance += NQTToNumber(Config.amountFee)
+    numberBalance += NQTToNumber(Config.amountFee)  // ввод суммы для оплаты
 
     const parameters = {
         amountNQT: (numberBalance*1E8).toFixed(0),
