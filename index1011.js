@@ -53,7 +53,7 @@ const Config = {
 }
 
 const Global = {
-    server: 'https://europe.signum.network',
+    server: 'https://brazil.signum.network',
     wallet: undefined,
     walletResponse: undefined,
     signumJSAPI: undefined,
