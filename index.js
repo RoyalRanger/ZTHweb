@@ -12,7 +12,6 @@ const Config = {
         "https://cryptodefrag.com:8125",
         "https://europe.signum.network",
         "https://australia.signum.network",
-        "https://signawallet.notallmine.net"
     ],
     MinerContractArgs: {
         feePlanck: '20000000',
