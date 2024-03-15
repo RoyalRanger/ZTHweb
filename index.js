@@ -8,10 +8,11 @@ const Config = {
     assetId_2: "9381200141252723234",
     serverAlternatives: [
         "https://brazil.signum.network",
-        "https://uk.signum.network",
-        "https://cryptodefrag.com:8125",
         "https://europe.signum.network",
+        "https://europe3.signum.network",
+        "https://us-east.signum.network",
         "https://australia.signum.network",
+        "https://singapore.signum.network"
     ],
     MinerContractArgs: {
         feePlanck: '20000000',
