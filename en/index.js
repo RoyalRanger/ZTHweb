@@ -1,7 +1,7 @@
 "use strict";
 
 const Config = {
-    defaultServer: 'https://europe.signum.network',
+    defaultServer: 'https://europe3.signum.network',
     SmartContractId: 738377637144987047n,
     authorisedCodeHash: 13623170965212595266n,
     assetId: "9518219425200752102", 
@@ -9,10 +9,11 @@ const Config = {
     serverAlternatives: [
         "https://brazil.signum.network",
         "https://europe.signum.network",
-        "https://europe3.signum.network",
+        "https://europe1.signum.network",
         "https://us-east.signum.network",
         "https://australia.signum.network",
-        "https://singapore.signum.network"
+        "https://singapore.signum.network",
+        "https://signawallet.notallmine.net"
     ],
     MinerContractArgs: {
         feePlanck: '20000000',
