@@ -110,7 +110,7 @@ hr {
 
 .header {
     padding: 1ch;
-    background: linear-gradient(to top left, #777b7e, #800000, #777b7e);
+    background: linear-gradient(to top left, #2a2a2a, #800000, #2a2a2a);
 /*     background-color: #e5756e; */
     text-align: center;
     padding: 0;
