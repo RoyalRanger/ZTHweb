@@ -1,7 +1,7 @@
 "use strict";
 
 const Config = {
-    defaultServer: 'https://europe3.signum.network',
+    defaultServer: 'https://signawallet.notallmine.net',
     SmartContractId: 738377637144987047n,
     authorisedCodeHash: 13623170965212595266n,
     assetId: "9518219425200752102", 
